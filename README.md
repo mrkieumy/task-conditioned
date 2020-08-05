@@ -1,8 +1,8 @@
 # <a href="https://www.researchgate.net/publication/343167450_Task-conditioned_Domain_Adaptation_for_Pedestrian_Detection_in_Thermal_Imagery"> Task-conditioned Domain Adaptation for Pedestrian Detection in Thermal Imagery </a>
 ## This implementation for our ECCV 2020 paper, training YOLOv3 on KAIST dataset with Task-conditioned network for Pedestrian Detection task in Thermal Domain.
 
-###This implementation was expanded from our previous work which was the Best Student Paper Honorable Mention Award <a href="https://github.com/mrkieumy/YOLOv3_PyTorch"> "Domain Adaptation for Privacy-Preserving Pedestrian Detection in Thermal Imagery" </a> . 
-###We added and changed many files and functions for our task-conditioned network.
+### This implementation was expanded from our previous work which was the Best Student Paper Honorable Mention Award <a href="https://github.com/mrkieumy/YOLOv3_PyTorch"> "Domain Adaptation for Privacy-Preserving Pedestrian Detection in Thermal Imagery" </a> . 
+### We added and changed many files and functions for our task-conditioned network.
 
 ### Improvement of this repository
 * Developed the best single-modality state-of-the-art result for Pedestrian detection task on KAIST dataset.
@@ -128,7 +128,7 @@ Video of Results:
 [![Video detection](examples/tc_det.jpg)](https://youtu.be/gZP8Qp41bGo "Click to play on Youtube.com")
 
 ### Results on KAIST dataset:
-####Our ECCV 2020 paper (Task-conditioned network): 
+#### Our ECCV 2020 paper (Task-conditioned network): 
 * mean Average Precision (mAP): 61.49%
 
 | Reasonable | Day & Night | Day | Night
