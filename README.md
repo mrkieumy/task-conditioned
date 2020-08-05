@@ -1,6 +1,5 @@
-# <a href="https://www.researchgate.net/publication/343167450_Task-conditioned_Domain_Adaptation_for_Pedestrian_Detection_in_Thermal_Imagery"> Task-conditioned Domain Adaptation for Pedestrian Detection in Thermal Imagery - ECCV 2020 </a>
+# <a href="https://www.researchgate.net/publication/343167450_Task-conditioned_Domain_Adaptation_for_Pedestrian_Detection_in_Thermal_Imagery"> Task-conditioned Domain Adaptation for Pedestrian Detection in Thermal Imagery </a>
 ## This implementation for our ECCV 2020 paper, training YOLOv3 on KAIST dataset with Task-conditioned network for Pedestrian Detection task in Thermal Domain.
-
 
 ###This implementation was expanded from our previous work which was the Best Student Paper Honorable Mention Award <a href="https://github.com/mrkieumy/YOLOv3_PyTorch"> "Domain Adaptation for Privacy-Preserving Pedestrian Detection in Thermal Imagery" </a> . 
 ###We added and changed many files and functions for our task-conditioned network.
@@ -131,20 +130,12 @@ Video of Results:
 ### Results on KAIST dataset:
 ####Our ECCV 2020 paper (Task-conditioned network): 
 * mean Average Precision (mAP): 61.49%
-* Precision day & night: 82.87%	     Precision daytime: 77.16% 	    Precision nighttime: 93.82% 
-* Miss rate day & night: 27.11% 	 Miss rate daytime: 34.81% 	    Miss rate nighttime: 10.31% 
 
-| Command | Description |
-| --- | --- |
-| git status | List all new or modified files |
-| git diff | Show file differences that haven't been staged |
+| Reasonable | Day & Night | Day | Night
+| --- | --- | --- | --- |
+| Precision | 82.87% | 77.16% | 93.82% |
+| Miss Rate | 27.11% | 34.81% | 10.31% |
 
-/*
-####Our newest paper (will be appear soon):  
-* mean Average Precision (mAP): 63.26%
-* Precision day & night: 83.11%	     Precision daytime: 78.47% 	    Precision nighttime: 93.38% 
-* Miss rate day & night: 25.88% 	 Miss rate daytime: 33.01% 	    Miss rate nighttime: 11.12% 
-*/
 
 ## Citation
 We really hope this repository is useful for you. Please cite our paper as
