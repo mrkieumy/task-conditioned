@@ -1,0 +1,7 @@
+classes= 3
+train  = data/flir_train.txt
+valid  = data/flir_test.txt
+names = data/flir.names
+backup = backup
+logfile = backup/log_training.txt
+
