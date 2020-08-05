@@ -6,7 +6,7 @@
 
 
 ### The short introduction of paper 
-[![Video detection](examples/firstslide.jpg)](https://youtu.be/gZP8Qp41bGo "Click to play on Youtube.com")
+[![Video detection](examples/firstslide.jpg)](https://youtu.be/n_jD-FpDsaI "Click to play on Youtube.com")
 
 
 ### Improvement of this repository
