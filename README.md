@@ -4,6 +4,11 @@
 ### This implementation was expanded from our previous work which was the Best Student Paper Honorable Mention Award <a href="https://github.com/mrkieumy/YOLOv3_PyTorch"> "Domain Adaptation for Privacy-Preserving Pedestrian Detection in Thermal Imagery" </a> . 
 ### We added and changed many files and functions for our task-conditioned network.
 
+
+### The short introduction of paper 
+[![Video detection](examples/firstslide.jpg)](https://youtu.be/gZP8Qp41bGo "Click to play on Youtube.com")
+
+
 ### Improvement of this repository
 * Developed the best single-modality state-of-the-art result for Pedestrian detection task on KAIST dataset.
 * Invention Task-conditioned network architecture which simutaniously solves two related tasks (classification task and detection task).
@@ -110,8 +115,8 @@ Noted that, before plotting results, check all result .JSON files in the results
 
 If you want to plot the comparison with multispectral state-of-the-art results, 
 (1) Download <a href="https://drive.google.com/file/d/1CYFYkfv7Y1_rBsGBtwXDdBj42RIAqTiJ/view?usp=sharing">Multispectral SOTA results </a> and extract to the directory results/SOTA.
-(2) In file Plot_LAMR.py, comment Ablation studies part (lines 80~84), 
-and comment out SOTA part (lines 45~55, and lines 90~100).  
+(2) In file Plot_LAMR.py, comment Ablation studies part (lines 80 -> 84), 
+and comment out SOTA part (lines 45 -> 55, and lines 90 -> 100).  
 
 ### Demo on webcam:
 Please check it
@@ -128,7 +133,12 @@ Video of Results:
 [![Video detection](examples/tc_det.jpg)](https://youtu.be/gZP8Qp41bGo "Click to play on Youtube.com")
 
 ### Results on KAIST dataset:
-#### Our ECCV 2020 paper (Task-conditioned network): 
+#### Our reported result on ECCV 2020 paper:
+![Result](examples/compareSOTA.png)
+ 
+ 
+ Other numbers:
+ 
 * mean Average Precision (mAP): 61.49%
 
 | Reasonable | Day & Night | Day | Night
