@@ -30,6 +30,7 @@ Noted that all of these instructions for Linux environment.
 * configurationfile = cfg/yolov3_kaist_tc_det.cfg 
 * datafile = data/kaist.data
 * listname = data/kaist_person.names
+
 For all of following commands, if command with [...] will be an option,
 you can use your parameter or leave there to use default paramaters above.
 
@@ -45,8 +46,8 @@ python detect.py thermal_kaist.png
 ```
 
 ### Evaluation Performance includes mAP and Miss Rate:
-Evaluation mean Average Precision (mAP) as well as Log Average Miss Rate (LAMR) of the detector over the test set
-Noted that, Log Average Miss Rate and Precision on daytime and nighttime is the standard evaluation of the state-of-the-art on KAIST dataset.
+Evaluation mean Average Precision (mAP) as well as Log Average Miss Rate (LAMR) of the detector over the test set.
+Noted that, Log Average Miss Rate and Precision on reasonable setting (daytime, nighttime, and day & night) is the standard evaluation of the state-of-the-art on KAIST dataset.
 ```
 python Evaluation_model.py [weightfile]
 ```
@@ -60,14 +61,22 @@ wrong detection (red boxes) and miss detection (green boxes)
 python drawBBxs.py imagefolder
 ```
 There is an folder 'kaist_examples' for you to draw bounding box. 
-Noted that, if you want to detect, the folder only have images (no contain any annotation files).
+Noted that, if you want to detect, the folder must contain only images (not contain any annotation files).
 
 ### Train your own data or KAIST data as follows:
 Before training on KAIST or your own dataset, you should prepare some steps as follow:
 1. Dataset (download <a href="https://drive.google.com/file/d/14A3K2IPPPC8-BwPh-YjeHARaZqjnR655/view?usp=sharing">KAIST_dataset </a> and place on a directory any place (better at root or in this current repository))
 2. Modify the link to dataset on data/train_thermal.txt and test_thermal.txt.
 3. Check some parameters in configuration files: data/kaist.data, cfg/yolov3_kaist.cfg such as train on thermal or visible, learning rate, number classes, etc,.
-
+4. Some most important files you should customize:
+    * data configuration (data/kaist.data) direct your training and testing list, number classes.
+    * list of object names (data/kaist_person.name) contains a list of object name for your detection task.
+    * trainlist and testlist (data/train_thermal.txt and data/test_thermal.txt) includes direction to each images and annotation for training and testing.
+    * network configuration (cfg/yolov3_kaist.cfg or cfg/yolov3_kaist_tc_det.cfg) is your network and hyperparameters such as learning rate, batchsize, imagesize, step.
+    More important is the last 3 blocks after yolo block. If your task is only one object, just put everything default and put the name object in data/kaist_person.name. Otherwise, you must change this information.
+    Please look at this site for <a href= "https://github.com/AlexeyAB/darknet">how to customize configuration file (*.cfg) </a>.
+    * Training file (train.py), at the end of this file, includes all parameters for training such as pre-trained weights, continue_trained model, data configuration file, network configuration file, training strategy and everything.
+    
 Then you can run experiments.
 ```
 python train.py [-x y]
@@ -93,7 +102,7 @@ or <a href="https://drive.google.com/file/d/1Kyoyira0liRRr_FOY8DDSeATLQAwXtu-/vi
 or ours best weight kaist detector augmented with GANs model.
 <a href="https://drive.google.com/file/d/1RDzTEuYNJ3p9snmyGWQ6Irj-Ja6HL-DX/view?usp=sharing">kaist_mixing80_20.weights </a>.
 Remember to place on 'weights' directory.
-### Monitor loss during training:
+### Monitor the training loss and validation performance during training:
 See the loss curve during training, also precision, recall curve of validation set for every epoch.
 Noted that, validation set is splitted automatically from the training set during training with 10%.
 
@@ -105,7 +114,7 @@ for task-conditioned network (TC_Det)
 python seeloss_condition.py
 ```
 
-### Plotting Result (Log Average Miss Rate curves):
+### Plotting Results (Log Average Miss Rate curves):
 Plotting the Log Average Miss Rate (LAMR) and Average Precision for both Ours ablation studies and state-of-the-art multispectral results.
 You will see image files of plot on this repository.
 ```
@@ -116,7 +125,10 @@ Noted that, before plotting results, check all result .JSON files in the results
 If you want to plot the comparison with multispectral state-of-the-art results, 
 (1) Download <a href="https://drive.google.com/file/d/1CYFYkfv7Y1_rBsGBtwXDdBj42RIAqTiJ/view?usp=sharing">Multispectral SOTA results </a> and extract to the directory results/SOTA.
 (2) In file Plot_LAMR.py, comment Ablation studies part (lines 80 -> 84), 
-and comment out SOTA part (lines 45 -> 55, and lines 90 -> 100).  
+and comment out SOTA part (lines 45 -> 55, and lines 90 -> 100). 
+
+If you want to plot your result together. (1) Evaluation your detector file. (2)Then you will see detection_result.JSON file in results/ folder (you can rename it or not).
+(3) In Plot_LAMR.py file, adding your detector at after the line 55, reference to your *.JSON file. (4) Add the short name (line 85) and then run this Plot_LAMR.py file. 
 
 ### Demo on webcam:
 Please check it
@@ -146,11 +158,12 @@ Video of Results:
 | Precision | 82.87% | 77.16% | 93.82% |
 | Miss Rate | 27.11% | 34.81% | 10.31% |
 
+The paper is available here <a href="https://www.researchgate.net/publication/343167450_Task-conditioned_Domain_Adaptation_for_Pedestrian_Detection_in_Thermal_Imagery"> Task-conditioned Domain Adaptation for Pedestrian Detection in Thermal Imagery </a>
 
 ## Citation
 We really hope this repository is useful for you. Please cite our paper as
 ```
-@inproceedings{kieueccv2020taskconditioned,
+@inproceedings{KieuECCV2020taskconditioned,
 	Author = {Kieu, My and Bagdanov, Andrew D and Bertini, Marco and Del Bimbo, Alberto},
 	Booktitle = {Proc. of European Conference on Computer Vision (ECCV)},
 	Title = {Task-conditioned Domain Adaptation for Pedestrian Detection in Thermal Imagery},
