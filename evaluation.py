@@ -7,7 +7,7 @@ from image import correct_yolo_boxes
 import os
 import tqdm
 from my_eval import _do_python_eval
-from LAMR_AP import meanAP_LogAverageMissRate
+from lamr_ap import meanAP_LogAverageMissRate
 from to_JSON import convert_predict_to_JSON
 from cfg import parse_cfg
 

@@ -49,7 +49,7 @@ python detect.py thermal_kaist.png
 Evaluation mean Average Precision (mAP) as well as Log Average Miss Rate (LAMR) of the detector over the test set.
 Noted that, Log Average Miss Rate and Precision on reasonable setting (daytime, nighttime, and day & night) is the standard evaluation of the state-of-the-art on KAIST dataset.
 ```
-python Evaluation_model.py [weightfile]
+python evaluation.py [weightfile]
 ```
 
 ### Draw bounding box:
@@ -118,7 +118,7 @@ python seeloss_condition.py
 Plotting the Log Average Miss Rate (LAMR) and Average Precision for both Ours ablation studies and state-of-the-art multispectral results.
 You will see image files of plot on this repository.
 ```
-python Plot_LAMR.py
+python plot_LAMR.py
 ```
 Noted that, before plotting results, check all result .JSON files in the results/ablation/*. 
 
